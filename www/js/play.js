@@ -13,14 +13,21 @@ DogeDodge.Play.prototype = {
 
   preload: function () {
     this.load.image('background','assets/background.jpg');
+    this.load.image('player','assets/player.png');  
   },
 
   create: function () {
+    // background
     this.background = this.add.tileSprite(0,0,320,568,'background');
     this.background.autoScroll(50,-50);
     this.background.scale.set(1);
+
+    // player
+    this.player = this.add.sprite(160,500,'player',5);
+    this.player.anchor.setTo(0.5, 0.5);
   },
 
   update: function () {
+  
   }
 };
