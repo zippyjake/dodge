@@ -25,9 +25,17 @@ DogeDodge.Play.prototype = {
     // player
     this.player = this.add.sprite(160,500,'player',5);
     this.player.anchor.setTo(0.5, 0.5);
+    
+    // movement keys
+    this.cursors = game.input.keyboard.createCursorKeys();
   },
 
   update: function () {
-  
+    if (this.cursors.left.isDown) {
+      this.player.x -= 10;
+    }
+    if (this.cursors.right.isDown) {
+      this.player.x += 10;
+    }
   }
 };
