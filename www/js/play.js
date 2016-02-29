@@ -33,10 +33,10 @@ DogeDodge.Play.prototype = {
 
   update: function () {
     if (this.cursors.left.isDown) {
-      this.player.x -= 10;
+      this.player.x -= 5;
     }
     if (this.cursors.right.isDown) {
-      this.player.x += 10;
+      this.player.x += 5;
     }
   }
 };
