@@ -14,7 +14,8 @@ DogeDodge.Play.prototype = {
   preload: function () {
     this.load.image('background','assets/background.jpg');
     this.load.image('player','assets/player.png');  
-    this.load.spritesheet('falling','assets/enemy.png')
+    this.load.spritesheet('falling','assets/enemy.png',44,38,2);
+    this.load.spritesheet('falling2','assets/enemy.png',44,38,2);
   },
 
   create: function () {
@@ -32,11 +33,20 @@ DogeDodge.Play.prototype = {
     this.cursors = game.input.keyboard.createCursorKeys();
     
     // falling
-    this.falling = this.add.sprite(100,100,'falling',5);
+    this.falling = this.add.sprite(100,100,'falling',2);
     this.falling.anchor.set(0.5,0.5);
     this.falling.smoothed = false;
     this.falling.animations.add('tail');
     this.falling.animations.play('tail',2,true);
+    this.falling.x = game.rnd.integerInRange(10, 350);
+  
+    // falling
+    this.falling2 = this.add.sprite(200,100,'falling',2);
+    this.falling2.anchor.set(0.5,0.5);
+    this.falling2.smoothed = false;
+    this.falling2.animations.add('tail');
+    this.falling2.animations.play('tail',2,true); 
+    this.falling2.x = game.rnd.integerInRange(10, 350);
   },
 
   update: function () {
@@ -44,7 +54,17 @@ DogeDodge.Play.prototype = {
       this.player.x -= 5;
     }
     if (this.cursors.right.isDown) {
-      this.player.x += 5;
+      this.player.x += 5; 
+    }
+    this.falling.y += 10;
+    if (this.falling.y > 568) {
+      this.falling.y = game.rnd.integerInRange(1, 20);;
+      this.falling.x = game.rnd.integerInRange(10, 340);
+    }
+    this.falling2.y += 7;
+    if (this.falling2.y > 568) {
+      this.falling2.y = game.rnd.integerInRange(10, 20);
+      this.falling2.x = game.rnd.integerInRange(10, 340);
     }
   }
 };
