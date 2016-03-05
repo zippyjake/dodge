@@ -14,6 +14,7 @@ DogeDodge.Play.prototype = {
   preload: function () {
     this.load.image('background','assets/background.jpg');
     this.load.image('player','assets/player.png');  
+    this.load.spritesheet('falling','assets/enemy.png')
   },
 
   create: function () {
@@ -29,6 +30,13 @@ DogeDodge.Play.prototype = {
 
     // movement keys
     this.cursors = game.input.keyboard.createCursorKeys();
+    
+    // falling
+    this.falling = this.add.sprite(100,100,'falling',5);
+    this.falling.anchor.set(0.5,0.5);
+    this.falling.smoothed = false;
+    this.falling.animations.add('tail');
+    this.falling.animations.play('tail',2,true);
   },
 
   update: function () {
