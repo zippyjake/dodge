@@ -28,6 +28,7 @@ DogeDodge.Play.prototype = {
     this.player = this.add.sprite(160,500,'player',5);
     this.player.anchor.setTo(0.5, 0.5);
     this.player.smoothed = false;
+    this.player.collideWorldBounds = true;
 
     // movement keys
     this.cursors = game.input.keyboard.createCursorKeys();
