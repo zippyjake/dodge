@@ -62,10 +62,10 @@ DogeDodge.Play.prototype = {
 
   update: function () {
     if (this.cursors.left.isDown) {
-      this.player.body.velocity.x -= 400;
+      this.player.body.velocity.x -= 250;
     }
     if (this.cursors.right.isDown) {
-      this.player.body.velocity.x += 400; 
+      this.player.body.velocity.x += 250; 
     }
     this.falling.y += 10;
     if (this.falling.y > 568) {
