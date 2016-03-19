@@ -46,7 +46,9 @@ DogeDodge.Play.prototype = {
     this.falling.animations.add('tail');
     this.falling.animations.play('tail',2,true);
     this.falling.x = game.rnd.integerInRange(10, 350);
-  
+    game.physics.arcade.enable(this.falling)
+    this.falling.body.velocity.y = 1300
+
     // falling
     this.falling2 = this.add.sprite(200,100,'falling',2);
     this.falling2.anchor.set(0.5,0.5);
@@ -54,14 +56,16 @@ DogeDodge.Play.prototype = {
     this.falling2.animations.add('tail');
     this.falling2.animations.play('tail',2,true); 
     this.falling2.x = game.rnd.integerInRange(10, 350);
+    game.physics.arcade.enable(this.falling2)
+    this.falling2.body.velocity.y = 1000
   },
 
   update: function () {
     if (this.cursors.left.isDown) {
-      this.player.x -= 5;
+      this.player.body.velocity.x -= 5;
     }
     if (this.cursors.right.isDown) {
-      this.player.x += 5; 
+      this.player.body.velocity.x += 5; 
     }
     this.falling.y += 10;
     if (this.falling.y > 568) {
