@@ -47,7 +47,7 @@ DogeDodge.Play.prototype = {
     this.falling.animations.play('tail',2,true);
     this.falling.x = game.rnd.integerInRange(10, 350);
     game.physics.arcade.enable(this.falling)
-    this.falling.body.velocity.y = 900
+    this.falling.body.velocity.y = 500
 
     // falling
     this.falling2 = this.add.sprite(200,100,'falling',2);
@@ -57,15 +57,15 @@ DogeDodge.Play.prototype = {
     this.falling2.animations.play('tail',2,true); 
     this.falling2.x = game.rnd.integerInRange(10, 350);
     game.physics.arcade.enable(this.falling2)
-    this.falling2.body.velocity.y = 700
+    this.falling2.body.velocity.y = 300
   },
 
   update: function () {
     if (this.cursors.left.isDown) {
-      this.player.body.velocity.x -=800;
+      this.player.body.velocity.x -= 400;
     }
     if (this.cursors.right.isDown) {
-      this.player.body.velocity.x += 800; 
+      this.player.body.velocity.x += 400; 
     }
     this.falling.y += 10;
     if (this.falling.y > 568) {
