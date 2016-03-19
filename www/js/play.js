@@ -19,6 +19,8 @@ DogeDodge.Play.prototype = {
   },
 
   create: function () {
+    game.physics.startSystem(Phaser.Physics.ARCADE)
+
     // background
     this.background = this.add.tileSprite(0,0,320,568,'background');
     this.background.autoScroll(50,-50);
@@ -29,6 +31,10 @@ DogeDodge.Play.prototype = {
     this.player.anchor.setTo(0.5, 0.5);
     this.player.smoothed = false;
     this.player.collideWorldBounds = true;
+    game.physics.arcade.enable(this.player)
+    this.player.body.collideWorldBounds = true;
+    this.player.body.bounce.setTo(0.3);
+    this.player.body.drag.setTo(3000);
 
     // movement keys
     this.cursors = game.input.keyboard.createCursorKeys();
