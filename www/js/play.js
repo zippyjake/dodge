@@ -77,8 +77,8 @@ DogeDodge.Play.prototype = {
       this.falling2.y = game.rnd.integerInRange(10, 20);
       this.falling2.x = game.rnd.integerInRange(10, 340);
     }
-    game.physics.arcade.collide(this.player,this.falling,this.handleCollision);
-    game.physics.arcade.collide(this.player,this.falling2,this.handleCollision);
+    game.physics.arcade.collide(this.falling,this.player,this.handleCollision);
+    game.physics.arcade.collide(this.falling2,this.player,this.handleCollision);
   },
   
   handleCollision: function() {
