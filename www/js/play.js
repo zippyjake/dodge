@@ -83,5 +83,5 @@ DogeDodge.Play.prototype = {
   
   handleCollision: function() {
     game.state.start('Play')
-  };
+  }
 };
